@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: aliceblue;
+    height: 100vh;
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sidebar {
+    height: 100%;
+    width: 70px;
+    background-color: white;
+    position: fixed;
+    transition: width 0.5s ease;
+    overflow: hidden;
+}
+
+.sidebar:hover {
+    width: 250px;
+}
+
+.sidebar-item {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    color: rgb(101, 161, 230);
+    text-decoration: none;
+    transition: background 0.5s ease;
+}
+
+.sidebar-item:hover {
+    background-color: #575757;
+}
+
+.icon {
+    font-size: 30px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.text {
+    margin-left: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.sidebar:hover .text {
+    opacity: 1;
+}
+
+.main-content {
+    margin-left: 80px;
+    padding: 20px;
+    width: calc(100% - 80px);
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;    /* Center vertically */
+    text-align: center;
+    height: 100vh;
+    transition: margin-left 0.5s ease;
+}
+
+.sidebar:hover + .main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
+/* Responsive Behavior */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+    }
+
+    .sidebar:hover {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 60px;
+        width: calc(100% - 60px);
+    }
+
+    .sidebar:hover + .main-content {
+        margin-left: 200px;
+        width: calc(100% - 200px);
+    }
+}
